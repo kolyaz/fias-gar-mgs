@@ -2,7 +2,7 @@ import { createWriteStream, existsSync } from 'fs';
 import assert, { strictEqual } from 'assert';
 import GarXmlZip from './lib/GarXmlZip.js';
 
-// const path = './data/gar_xml.zip';
+// const path = './data/gar_xml.zip'
 // async function test_001_date() {
 //   // Выяснение даты архива
 //   // 'YYYY-MM-DD'
