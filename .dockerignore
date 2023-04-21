@@ -1,0 +1,7 @@
+/node_modules
+/.git
+/data/gar_delta_xml.zip
+/data/gar_xml.zip
+package-lock.json
+
+

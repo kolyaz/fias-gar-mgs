@@ -1,5 +1,4 @@
 /node_modules
 /package-lock.json
-/data/*
 /data/gar_delta_xml.zip
 /data/gar_xml.zip

@@ -5,11 +5,19 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node service.js",
+    "dev": "nodemon service.js"
   },
   "author": "kolyaz",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "https": "^1.0.0",
+    "nodejs-file-downloader": "^4.11.1",
     "progress-stream": "^2.0.0",
     "unzippo": "^1.0.2",
     "xml-toolkit": "^1.0.34"
@@ -17,6 +25,7 @@
   "devDependencies": {
     "eslint": "^8.38.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5"
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22"
   }
 }

@@ -1,0 +1,36 @@
+#############################
+# Configuration for GAR
+# Версия от 19.04.2023
+#
+#############################
+
+version: '3.9'
+
+services:
+  fias-gar-node:
+    build: .
+    depends_on:
+      - db
+      - phpmyadmin
+    ports:
+    - 3001:3001
+    - 3080:3080
+    - 3081:3081
+    container_name: ${PROJECT_NAME}_service
+    volumes:
+      - ./data:/GarBase/data
+  db:
+    image: mariadb:10.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+    container_name: ${PROJECT_NAME}_db
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    container_name: ${PROJECT_NAME}_adminDB
