@@ -25,6 +25,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 12345
     container_name: ${PROJECT_NAME}_db
+    volumes:
+        - ./data/mysql:/var/lib/mysql
+        - ./data/mysql/initdb:/docker-entrypoint-initdb.d
 
   phpmyadmin:
     image: phpmyadmin

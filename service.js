@@ -75,15 +75,15 @@ async function test_003_str() {
 //   }
 }
 
-async function main() {
-  if (!existsSync(pathGar)) return console.log('No file, no problem');
-  console.log('Дата архива', await test_001_date());
-  await test_002_dic();
-  await test_003_str();
-  return true;
-}
+// async function main() {
+//   // if (!existsSync(pathGar)) return console.log('No file, no problem');
+//   // console.log('Дата архива', await test_001_date());
+//   // await test_002_dic();
+//   // await test_003_str();
+//   return true;
+// }
 
-//main();
+// main();
 // END GAR Script
 async function start() {
   try {
