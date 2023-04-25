@@ -1,6 +1,6 @@
 # SERVICE GAR
-
-FROM node:current-alpine
+# 16 node потомучто sequelize
+FROM node:gallium-slim
 # Установка зависимостей
 
 WORKDIR /GarBase

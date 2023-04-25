@@ -11,6 +11,8 @@
     <button onclick="getFullBase()" class="get-full-base">getFullBaseGar</button>
     <button onclick="getVersion()" class="get-version">getVersion</button>
     <button onclick="parseBase()" class="get-version">Parse Base</button>
+    <button onclick="getSyncBD()" class="get-version">Get Sync BD</button>
+    <button onclick="getDropBD()" class="get-version">Get Drop BD</button>
 </body>
 <script>
 const getDate = async()=>{
@@ -44,6 +46,25 @@ const getVersion = async() => {
 }
 const parseBase = async () => {
     let response = await fetch('/parseGarBase', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: ''
+    });
+}
+
+const getSyncBD = async () => {
+    let response = await fetch('/getSyncBD', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: ''
+    });
+}
+const getDropBD = async () => {
+    let response = await fetch('/getDropBD', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

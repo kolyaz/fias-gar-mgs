@@ -7,21 +7,21 @@
 version: '3.9'
 
 services:
-  # fias-gar-node:
-  #   build: .
-  #   depends_on:
-  #     - db
-  #   ports:
-  #   - 3001:3001
-  #   - 3080:3080
-  #   - 3081:3081
-  #   container_name: ${PROJECT_NAME}_service
-  #   links:
-  #     - db:db
-  #   volumes:
-  #     - ./data:/GarBase/data
-  #   networks:
-  #     - app-network
+  fias-gar-node:
+    build: .
+    depends_on:
+      - db
+    ports:
+    - 3001:3001
+    - 3080:3080
+    - 3081:3081
+    container_name: ${PROJECT_NAME}_service
+    links:
+      - db:db
+    volumes:
+      - ./data:/GarBase/data
+    networks:
+      - app-network
   db:
     image: mariadb:10.6
     restart: always
@@ -30,8 +30,8 @@ services:
     container_name: ${PROJECT_NAME}_db
     ports:
         - "3306:3306"
-    # networks:
-    #   - app-network
+    networks:
+      - app-network
     volumes:
         - ./data/mysql:/var/lib/mysql
         - ./data/mysql/initdb:/docker-entrypoint-initdb.d
@@ -44,10 +44,12 @@ services:
     environment:
       - PMA_ARBITRARY=1
     container_name: ${PROJECT_NAME}_adminDB
-    # networks:
-    #   - app-network
+    networks:
+      - app-network
     depends_on:
       - db
-# networks:
-#   app-network:
-#     driver: bridge
+volumes:
+  mysql:
+networks:
+  app-network:
+    driver: bridge
