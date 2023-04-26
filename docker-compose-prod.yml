@@ -24,12 +24,13 @@ services:
     networks:
       - app-network
   db:
-    image: mariadb:10.6
+    image: mariadb:10.10
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
       MYSQL_DATABASE: ${DB_NAME}
     container_name: ${PROJECT_NAME}_db
+    command: --max_connections=1000000
     ports:
         - "3306:3306"
     networks:

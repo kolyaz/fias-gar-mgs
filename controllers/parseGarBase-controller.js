@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 import { Worker } from 'worker_threads';
 
 dotenv.config();
+const maxRegionNumber = 99;
 // eslint-disable-next-line no-unused-vars
 const promWork = async (worker) => new Promise((resolve, reject) => {
   worker.on('message', resolve);
@@ -14,29 +15,24 @@ const promWork = async (worker) => new Promise((resolve, reject) => {
 const addWork = (poolWorkers, currentRegion) => {
   for (const worker in poolWorkers) {
     const region = +currentRegion + (+worker);
-    // if (region > 99) {
-    //   return 0;
-    // }
-    poolWorkers[worker].worker.postMessage({
-      // name: itemTableRegion[item],
-      region,
-      pathFile: process.env.PATH_FULL_GAR,
-    });
+    if (region <= maxRegionNumber) {
+      poolWorkers[worker].worker.postMessage({
+        // name: itemTableRegion[item],
+        region,
+        pathFile: process.env.PATH_FULL_GAR,
+      });
+    }
   }
   // console.log('poolWorkers.length', poolWorkers.length);
   return poolWorkers.length;
 };
 
 const parseGarBaseController = async () => {
-  const maxRegionNumber = 99;
   const poolWorkers = [];
   for (let index = 0; index < process.env.CPU_THREADS; index++) {
     poolWorkers.push({ worker: new Worker('./lib/GarGetRegionItem.js') });
   }
   for (let currentRegion = 1; currentRegion < maxRegionNumber;) {
-    if (currentRegion > 99) {
-      return;
-    }
     console.log('currentRegion', currentRegion);
     currentRegion += addWork(poolWorkers, currentRegion);
     // for (const worker in poolWorkers) {
