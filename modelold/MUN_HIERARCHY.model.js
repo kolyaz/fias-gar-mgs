@@ -1,27 +1,27 @@
 export default (sequelize, Sequelize) => {
-  const APARTMENTS_PARAMS = sequelize.define(
-    'APARTMENTS_PARAMS',
+  const MUN_HIERARCHY = sequelize.define(
+    'MUN_HIERARCHY',
     {
-      GARID: {
+      ID: {
         type: Sequelize.STRING,
-        // primaryKey: true,
+        primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,
       },
-      OBJECTGUID: {
+      PARENTOBJID: {
         type: Sequelize.STRING,
       },
       CHANGEID: {
         type: Sequelize.STRING,
       },
-      CHANGEIDEND: {
+      OKTMO: {
         type: Sequelize.STRING,
       },
-      TYPEID: {
+      PREVID: {
         type: Sequelize.STRING,
       },
-      VALUE: {
+      NEXTID: {
         type: Sequelize.STRING,
       },
       UPDATEDATE: {
@@ -33,11 +33,17 @@ export default (sequelize, Sequelize) => {
       ENDDATE: {
         type: Sequelize.STRING,
       },
+      ISACTIVE: {
+        type: Sequelize.STRING,
+      },
+      PATH: {
+        type: Sequelize.STRING,
+      },
     },
     {
-      tableName: 'APARTMENTS_PARAMS',
+      tableName: 'MUN_HIERARCHY',
     },
   );
 
-  return APARTMENTS_PARAMS;
+  return MUN_HIERARCHY;
 };

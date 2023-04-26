@@ -1,10 +1,10 @@
 export default (sequelize, Sequelize) => {
-  const APARTMENTS_PARAMS = sequelize.define(
-    'APARTMENTS_PARAMS',
+  const ADDR_OBJ = sequelize.define(
+    'ADDR_OBJ',
     {
-      GARID: {
+      ID: {
         type: Sequelize.STRING,
-        // primaryKey: true,
+        primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,
@@ -15,13 +15,22 @@ export default (sequelize, Sequelize) => {
       CHANGEID: {
         type: Sequelize.STRING,
       },
-      CHANGEIDEND: {
+      NAME: {
         type: Sequelize.STRING,
       },
-      TYPEID: {
+      TYPENAME: {
         type: Sequelize.STRING,
       },
-      VALUE: {
+      LEVEL: {
+        type: Sequelize.STRING,
+      },
+      OPERTYPEID: {
+        type: Sequelize.STRING,
+      },
+      PREVID: {
+        type: Sequelize.STRING,
+      },
+      NEXTID: {
         type: Sequelize.STRING,
       },
       UPDATEDATE: {
@@ -33,11 +42,17 @@ export default (sequelize, Sequelize) => {
       ENDDATE: {
         type: Sequelize.STRING,
       },
+      ISACTUAL: {
+        type: Sequelize.STRING,
+      },
+      ISACTIVE: {
+        type: Sequelize.STRING,
+      },
     },
     {
-      tableName: 'APARTMENTS_PARAMS',
+      tableName: 'ADDR_OBJ',
     },
   );
 
-  return APARTMENTS_PARAMS;
+  return ADDR_OBJ;
 };

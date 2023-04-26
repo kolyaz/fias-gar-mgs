@@ -2,9 +2,9 @@ export default (sequelize, Sequelize) => {
   const APARTMENTS_PARAMS = sequelize.define(
     'APARTMENTS_PARAMS',
     {
-      GARID: {
+      ID: {
         type: Sequelize.STRING,
-        // primaryKey: true,
+        primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,

@@ -2,9 +2,9 @@ export default (sequelize, Sequelize) => {
   const MUN_HIERARCHY = sequelize.define(
     'MUN_HIERARCHY',
     {
-      ID: {
+      GARID: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,

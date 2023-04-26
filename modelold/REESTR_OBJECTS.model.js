@@ -1,11 +1,7 @@
 export default (sequelize, Sequelize) => {
-  const APARTMENTS_PARAMS = sequelize.define(
-    'APARTMENTS_PARAMS',
+  const REESTR_OBJECTS = sequelize.define(
+    'REESTR_OBJECTS',
     {
-      GARID: {
-        type: Sequelize.STRING,
-        // primaryKey: true,
-      },
       OBJECTID: {
         type: Sequelize.STRING,
       },
@@ -15,29 +11,23 @@ export default (sequelize, Sequelize) => {
       CHANGEID: {
         type: Sequelize.STRING,
       },
-      CHANGEIDEND: {
+      ISACTIVE: {
         type: Sequelize.STRING,
       },
-      TYPEID: {
+      LEVELID: {
         type: Sequelize.STRING,
       },
-      VALUE: {
+      CREATEDATE: {
         type: Sequelize.STRING,
       },
       UPDATEDATE: {
         type: Sequelize.STRING,
       },
-      STARTDATE: {
-        type: Sequelize.STRING,
-      },
-      ENDDATE: {
-        type: Sequelize.STRING,
-      },
     },
     {
-      tableName: 'APARTMENTS_PARAMS',
+      tableName: 'REESTR_OBJECTS',
     },
   );
 
-  return APARTMENTS_PARAMS;
+  return REESTR_OBJECTS;
 };

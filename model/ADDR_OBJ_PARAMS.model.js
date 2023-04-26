@@ -2,9 +2,9 @@ export default (sequelize, Sequelize) => {
   const ADDR_OBJ_PARAMS = sequelize.define(
     'ADDR_OBJ_PARAMS',
     {
-      ID: {
+      GARID: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,
@@ -19,7 +19,7 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
       VALUE: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(512),
       },
       UPDATEDATE: {
         type: Sequelize.STRING,

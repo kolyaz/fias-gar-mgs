@@ -9,6 +9,7 @@ version: '3.9'
 services:
   # fias-gar-node:
   #   build: .
+  #   env_file: .env
   #   depends_on:
   #     - db
   #   ports:
@@ -25,8 +26,13 @@ services:
   db:
     image: mariadb:10.6
     restart: always
+    env_file: .env
     environment:
-      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_ROOT_USER: ${DB_ROOT}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PW}
     container_name: ${PROJECT_NAME}_db
     ports:
         - "3306:3306"
@@ -41,6 +47,7 @@ services:
     restart: always
     ports:
       - 8080:80
+    env_file: .env
     environment:
       - PMA_ARBITRARY=1
     container_name: ${PROJECT_NAME}_adminDB

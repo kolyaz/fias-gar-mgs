@@ -1,43 +1,40 @@
 export default (sequelize, Sequelize) => {
-  const APARTMENTS_PARAMS = sequelize.define(
-    'APARTMENTS_PARAMS',
+  const NORMATIVE_DOCS = sequelize.define(
+    'NORMATIVE_DOCS',
     {
-      GARID: {
+      ID: {
         type: Sequelize.STRING,
-        // primaryKey: true,
+        primaryKey: true,
       },
-      OBJECTID: {
-        type: Sequelize.STRING,
+      NAME: {
+        type: Sequelize.STRING(1024),
       },
-      OBJECTGUID: {
-        type: Sequelize.STRING,
-      },
-      CHANGEID: {
+      DATE: {
         type: Sequelize.STRING,
       },
-      CHANGEIDEND: {
+      NUMBER: {
         type: Sequelize.STRING,
       },
-      TYPEID: {
+      TYPE: {
         type: Sequelize.STRING,
       },
-      VALUE: {
+      KIND: {
         type: Sequelize.STRING,
       },
       UPDATEDATE: {
         type: Sequelize.STRING,
       },
-      STARTDATE: {
+      ORGNAME: {
         type: Sequelize.STRING,
       },
-      ENDDATE: {
+      ACCDATE: {
         type: Sequelize.STRING,
       },
     },
     {
-      tableName: 'APARTMENTS_PARAMS',
+      tableName: 'NORMATIVE_DOCS',
     },
   );
 
-  return APARTMENTS_PARAMS;
+  return NORMATIVE_DOCS;
 };

@@ -1,27 +1,36 @@
 export default (sequelize, Sequelize) => {
-  const APARTMENTS = sequelize.define(
-    'APARTMENTS',
+  const ADM_HIERARCHY = sequelize.define(
+    'ADM_HIERARCHY',
     {
-      GARID: {
+      ID: {
         type: Sequelize.STRING,
-        // primaryKey: true,
+        primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,
       },
-      OBJECTGUID: {
+      PARENTOBJID: {
         type: Sequelize.STRING,
       },
       CHANGEID: {
         type: Sequelize.STRING,
       },
-      NUMBER: {
+      REGIONCODE: {
         type: Sequelize.STRING,
       },
-      APARTTYPE: {
+      AREACODE: {
         type: Sequelize.STRING,
       },
-      OPERTYPEID: {
+      CITYCODE: {
+        type: Sequelize.STRING,
+      },
+      PLACECODE: {
+        type: Sequelize.STRING,
+      },
+      PLANCODE: {
+        type: Sequelize.STRING,
+      },
+      STREETCODE: {
         type: Sequelize.STRING,
       },
       PREVID: {
@@ -39,17 +48,17 @@ export default (sequelize, Sequelize) => {
       ENDDATE: {
         type: Sequelize.STRING,
       },
-      ISACTUAL: {
+      ISACTIVE: {
         type: Sequelize.STRING,
       },
-      ISACTIVE: {
+      PATH: {
         type: Sequelize.STRING,
       },
     },
     {
-      tableName: 'APARTMENTS',
+      tableName: 'ADM_HIERARCHY',
     },
   );
 
-  return APARTMENTS;
+  return ADM_HIERARCHY;
 };

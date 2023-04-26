@@ -2,9 +2,9 @@ export default (sequelize, Sequelize) => {
   const STEADS = sequelize.define(
     'STEADS',
     {
-      ID: {
+      GARID: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,

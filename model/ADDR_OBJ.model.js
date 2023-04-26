@@ -2,9 +2,9 @@ export default (sequelize, Sequelize) => {
   const ADDR_OBJ = sequelize.define(
     'ADDR_OBJ',
     {
-      ID: {
+      GARID: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,

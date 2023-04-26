@@ -2,12 +2,12 @@ export default (sequelize, Sequelize) => {
   const NORMATIVE_DOCS = sequelize.define(
     'NORMATIVE_DOCS',
     {
-      ID: {
+      GARID: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
       },
       NAME: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1024),
       },
       DATE: {
         type: Sequelize.STRING,

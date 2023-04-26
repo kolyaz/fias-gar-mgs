@@ -2,9 +2,9 @@ export default (sequelize, Sequelize) => {
   const ADM_HIERARCHY = sequelize.define(
     'ADM_HIERARCHY',
     {
-      ID: {
+      GARID: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
       },
       OBJECTID: {
         type: Sequelize.STRING,
