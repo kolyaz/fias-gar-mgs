@@ -21,6 +21,8 @@
     "mysql2": "^3.2.3",
     "nodejs-file-downloader": "^4.11.1",
     "progress-stream": "^2.0.0",
+    "request": "^2.88.2",
+    "request-progress": "^3.0.0",
     "sequelize": "^6.31.0",
     "unzippo": "^1.0.2",
     "worker-threads-promise": "^1.0.1",

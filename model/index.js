@@ -19,6 +19,17 @@ import ROOMS from './ROOMS.model.js';
 import STEADS_PARAMS from './STEADS_PARAMS.model.js';
 import STEADS from './STEADS.model.js';
 
+import ADDHOUSE_TYPES from './ADDHOUSE_TYPES.model.js';
+import ADDR_OBJ_TYPES from './ADDR_OBJ_TYPES.model.js';
+import APARTMENT_TYPES from './APARTMENT_TYPES.model.js';
+import HOUSE_TYPES from './HOUSE_TYPES.model.js';
+import NORMATIVE_DOCS_KINDS from './NORMATIVE_DOCS_KINDS.model.js';
+import NORMATIVE_DOCS_TYPES from './NORMATIVE_DOCS_TYPES.model.js';
+import OBJECT_LEVELS from './OBJECT_LEVELS.model.js';
+import OPERATION_TYPES from './OPERATION_TYPES.model.js';
+import PARAM_TYPES from './PARAM_TYPES.model.js';
+import ROOM_TYPES from './ROOM_TYPES.model.js';
+
 import sequelize from '../service/database.js';
 
 const db = {
@@ -42,6 +53,16 @@ const db = {
   ROOMS: ROOMS(sequelize, Sequelize),
   STEADS_PARAMS: STEADS_PARAMS(sequelize, Sequelize),
   STEADS: STEADS(sequelize, Sequelize),
+  ADDHOUSE_TYPES: ADDHOUSE_TYPES(sequelize, Sequelize),
+  ADDR_OBJ_TYPES: ADDR_OBJ_TYPES(sequelize, Sequelize),
+  APARTMENT_TYPES: APARTMENT_TYPES(sequelize, Sequelize),
+  HOUSE_TYPES: HOUSE_TYPES(sequelize, Sequelize),
+  NORMATIVE_DOCS_KINDS: NORMATIVE_DOCS_KINDS(sequelize, Sequelize),
+  NORMATIVE_DOCS_TYPES: NORMATIVE_DOCS_TYPES(sequelize, Sequelize),
+  OBJECT_LEVELS: OBJECT_LEVELS(sequelize, Sequelize),
+  OPERATION_TYPES: OPERATION_TYPES(sequelize, Sequelize),
+  PARAM_TYPES: PARAM_TYPES(sequelize, Sequelize),
+  ROOM_TYPES: ROOM_TYPES(sequelize, Sequelize),
 };
 
 export {

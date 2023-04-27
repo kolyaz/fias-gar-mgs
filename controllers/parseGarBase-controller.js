@@ -1,44 +1,43 @@
-import * as dotenv from 'dotenv';
-
 import { Worker } from 'worker_threads';
 
+import * as dotenv from 'dotenv';
+import { getGarData } from '../lib/GetGarData.js';
+
+// import { getGarDataDictionary, itemDictionary } from '../lib/GetGarDataDictionary.js';
+
 dotenv.config();
-const maxRegionNumber = 99;
-// eslint-disable-next-line no-unused-vars
-const promWork = async (worker) => new Promise((resolve, reject) => {
-  worker.on('message', resolve);
-  worker.on('error', reject);
-  worker.on('exit', (code) => {
-    if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
-  });
-});
-const addWork = (poolWorkers, currentRegion) => {
-  for (const worker in poolWorkers) {
-    const region = +currentRegion + (+worker);
-    if (region <= maxRegionNumber) {
-      poolWorkers[worker].worker.postMessage({
-        // name: itemTableRegion[item],
-        region,
-        pathFile: process.env.PATH_FULL_GAR,
-      });
-    }
-  }
-  // console.log('poolWorkers.length', poolWorkers.length);
-  return poolWorkers.length;
-};
+// const maxRegionNumber = process.env.MAX_REGION_NUMBER;
+
+// const addWork = (poolWorkers, currentRegion) => {
+//   for (const worker in poolWorkers) {
+//     const region = +currentRegion + (+worker);
+//     if (region <= maxRegionNumber) {
+//       poolWorkers[worker].worker.postMessage({
+//         // name: itemTableRegion[item],
+//         region,
+//         pathFile: process.env.PATH_FULL_GAR,
+//       });
+//     }
+//   }
+//   // console.log('poolWorkers.length', poolWorkers.length);
+//   return poolWorkers.length;
+// };
 
 const parseGarBaseController = async () => {
   const poolWorkers = [];
   for (let index = 0; index < process.env.CPU_THREADS; index++) {
     poolWorkers.push({ worker: new Worker('./lib/GarGetRegionItem.js') });
   }
-  for (let currentRegion = 1; currentRegion < maxRegionNumber;) {
-    console.log('currentRegion', currentRegion);
-    currentRegion += addWork(poolWorkers, currentRegion);
-    // for (const worker in poolWorkers) {
-    //   // eslint-disable-next-line no-await-in-loop
-    //   console.log(`work is ${worker}`, await promWork(poolWorkers[worker].worker));
-    // }
-  }
+  // for (let currentRegion = 1; currentRegion < maxRegionNumber;) {
+  //   currentRegion += addWork(poolWorkers, currentRegion);
+  // }
+  // for (const item in itemDictionary) {
+  //   const name = itemDictionary[item];
+  //   // eslint-disable-next-line no-await-in-loop
+  //   await getGarDataDictionary(process.env.PATH_FULL_GAR);
+  // }
+  // process.env.PATH_FULL_GAR
+  // process.env.PATH_FULL_GAR
+  await getGarData(process.env.PATH_FULL_GAR, poolWorkers);
 };
 export default parseGarBaseController;
