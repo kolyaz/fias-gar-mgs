@@ -8,7 +8,7 @@ version: '3.9'
 
 services:
   fias-gar-node:
-    image: kolyaz/fias-gar-mgs:latest
+    image: kolyaz/fias-gar-mgs:master
     depends_on:
       - db
       - phpmyadmin

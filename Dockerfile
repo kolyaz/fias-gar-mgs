@@ -4,7 +4,7 @@ FROM node:gallium-slim
 # FROM node:lts
 # Установка зависимостей
 
-# WORKDIR /GarBase
+WORKDIR /GarBase
 # Создание рабочей дериктории 
 
 # COPY /folder/vue/dist/pwa/ /folder/vue/dist/pwa/

@@ -5,7 +5,7 @@ import request from 'request';
 import progress from 'request-progress';
 import getGarVerDate from '../lib/GetGarVerDate.js';
 import getDateGar from '../lib/GetDateGar.js';
-import chekFileGar from '../lib/chekFileGar.js';
+import chekFileGar from '../lib/ChekFileGar.js';
 
 const getDownloadUpdateGarController = async () => {
   dotenv.config();
