@@ -1,0 +1,74 @@
+#############################
+# Configuration for GAR
+# Версия от 19.04.2023
+#
+#############################
+
+version: '3.9'
+
+services:
+  fias-gar-node:
+    image: kolyaz/fias-gar-mgs:latest
+    depends_on:
+      - db
+      - phpmyadmin
+    ports:
+    - 3001:3001
+    - 3080:3080
+    - 3081:3081
+    container_name: ${PROJECT_NAME}_service
+    links:
+      - db:db
+    volumes:
+      - ./data:/GarBase/data
+    networks:
+      - app-network
+
+  db:
+    image: mariadb:10.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
+      MYSQL_DATABASE: ${DB_NAME}
+    container_name: ${PROJECT_NAME}_db
+    # command: --max_connections=1000000
+    ports:
+        - "3306:3306"
+    networks:
+      - app-network
+    volumes:
+        - ./data/mysql:/var/lib/mysql
+        - ./data/mysql/initdb:/docker-entrypoint-initdb.d
+  # MySQL в 4-ре раза медленнее Mariadb
+  # db:
+  #   image: mysql
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
+  #     MYSQL_DATABASE: ${DB_NAME}
+  #   container_name: ${PROJECT_NAME}_db
+  #   # command: --max_connections=1000000
+  #   ports:
+  #       - "3306:3306"
+  #   networks:
+  #     - app-network
+  #   volumes:
+  #       - ./data/mysql:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    container_name: ${PROJECT_NAME}_adminDB
+    networks:
+      - app-network
+    depends_on:
+      - db
+volumes:
+  mysql:
+networks:
+  app-network:
+    driver: bridge
